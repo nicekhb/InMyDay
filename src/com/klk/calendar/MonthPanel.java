@@ -15,17 +15,21 @@ import javax.swing.JPanel;
 
 public class MonthPanel extends JPanel{
 	JPanel panel_top;
+	JPanel panel_top_center, panel_top_east;
 	JPanel panel_center;
 	JPanel panel_bottom;
 	JLabel curYearMonth;
 	JButton btn_pre,btn_next;
 	JButton btn_week,btn_month;
+	JButton btn_addSchedule;
 	Calendar calendar;
 	int year, month, day;
 	String[] wTitle = {"SUN","MON","TUE","WED","THU","FRI","SAT"};
 	
 	public MonthPanel() {
 		panel_top = new JPanel();
+		panel_top_center = new JPanel();
+		panel_top_east = new JPanel();
 		panel_center = new JPanel();
 		panel_bottom = new JPanel();
 		calendar = Calendar.getInstance();
@@ -36,37 +40,31 @@ public class MonthPanel extends JPanel{
 		btn_next = new JButton("¥Ÿ¿Ω");
 		btn_week = new JButton("Weekly");
 		btn_month = new JButton("Monthly");
+		btn_addSchedule = new JButton("add Schedule");
 		
 		btn_pre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(month != 1){
-					month--;
-				}else{
-					year--;
-					month = 12;
-				}
-				makeCalendar();
+				beforeMonth();
 			}
 		});
 		btn_next.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(month != 12){
-					month++;
-				}else{
-					year++;
-					month = 1;
-				}
-				makeCalendar();
+				afterMonth();
 			}
 		});
 		
 		curYearMonth = new JLabel(Integer.toString(year)+"."+Integer.toString(month));
 		curYearMonth.setFont(new Font("arial black", Font.BOLD, 70));
-		panel_top.add(btn_pre);
-		panel_top.add(curYearMonth);
-		panel_top.add(btn_next);
+		panel_top_center.add(btn_pre);
+		panel_top_center.add(curYearMonth);
+		panel_top_center.add(btn_next);
 		panel_bottom.add(btn_week);
 		panel_bottom.add(btn_month);
+		panel_top.setLayout(new BorderLayout());
+		panel_top_east.setLayout(new BorderLayout());
+		panel_top_east.add(btn_addSchedule);
+		panel_top.add(panel_top_center);
+		panel_top.add(panel_top_east, BorderLayout.EAST);
 
 		makeCalendar();
 		
@@ -82,12 +80,32 @@ public class MonthPanel extends JPanel{
 		setBackground(Color.yellow);
 	}
 	
+	public void beforeMonth(){
+		if(month != 1){
+			month--;
+		}else{
+			year--;
+			month = 12;
+		}
+		makeCalendar();
+	}
+
+	public void afterMonth(){
+		if(month != 12){
+			month++;
+		}else{
+			year++;
+			month = 1;
+		}
+		makeCalendar();
+	}
+	
 	public void makeTitle(){
 		for(int i=0; i < 7 ;i++){
 			JPanel day = new JPanel();
 			JLabel label = new JLabel(wTitle[i]);
 			day.add(label);
-			day.setPreferredSize(new Dimension(130, 30));
+			day.setPreferredSize(new Dimension(DayPanelOfMonth.WIDTH, 30));
 			day.setBackground(Color.white);
 			panel_center.add(day);
 		}
@@ -107,5 +125,9 @@ public class MonthPanel extends JPanel{
 			panel_center.add(day);
 		}
 		updateUI();
+	}
+	
+	public void addSchedule(){
+		
 	}
 }
