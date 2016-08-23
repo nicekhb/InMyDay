@@ -17,14 +17,15 @@ public class InMyDayMain extends JFrame{
 		panel_west = new JPanel();
 		monthPanel = new MonthPanel();
 		
-		panel_west.setPreferredSize(new Dimension(200, 1000));
+		panel_west.setPreferredSize(new Dimension(200, 900));
 		panel_west.setBackground(Color.cyan);
 		
 		add(panel_west, BorderLayout.WEST);
 		add(monthPanel);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(1200, 1000);
+		setSize(1200, 900);
+		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}

@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class DayPanelOfMonth extends JPanel{
+	public static final int WIDTH = 130;
+	public static final int HEIGHT = 100;
 	JLabel dayLabel;
 	int dayNumber;
 	public DayPanelOfMonth(int dayNumber) {
@@ -16,7 +18,7 @@ public class DayPanelOfMonth extends JPanel{
 		
 		add(dayLabel);
 		
-		setPreferredSize(new Dimension(130, 130));
+		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setBackground(Color.green);
 	}
 }
