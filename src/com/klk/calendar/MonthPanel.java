@@ -23,7 +23,7 @@ public class MonthPanel extends JPanel{
 	JButton btn_week,btn_month;
 	JButton btn_addSchedule;
 	Calendar calendar;
-	int year, month, day;
+	int year, month;
 	String[] wTitle = {"SUN","MON","TUE","WED","THU","FRI","SAT"};
 	
 	public MonthPanel() {
@@ -35,7 +35,7 @@ public class MonthPanel extends JPanel{
 		calendar = Calendar.getInstance();
 		year = calendar.get(Calendar.YEAR);
 		month = calendar.get(Calendar.MONTH)+1;
-		day = calendar.get(Calendar.DAY_OF_MONTH);
+		//day = calendar.get(Calendar.DAY_OF_MONTH);
 		btn_pre = new JButton("이전");
 		btn_next = new JButton("다음");
 		btn_week = new JButton("Weekly");
