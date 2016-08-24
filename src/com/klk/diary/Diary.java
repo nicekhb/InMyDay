@@ -12,11 +12,11 @@ import javax.swing.JScrollPane;
 
 
 public class Diary extends JFrame{
-	JPanel p_center;	//왼쪽, 가운데 큰 패널 
+	JPanel p_center;	// 가운데 큰
 	JButton bt_add;
 	JPanel p_list,p_bigview,p_day,p_detail;//왼쪽 리스트패널, 가운데 상세정보 패널, 윗줄패널 ,세부패널
 	JScrollPane scroll;
-	JPanel p_no;
+	JPanel p_no;//공백용
 	JButton bt_year,bt_month,bt_date;
 	
 	public Diary() {
@@ -37,7 +37,7 @@ public class Diary extends JFrame{
 		
 		p_center.setLayout(new FlowLayout(FlowLayout.LEFT));
 		p_center.setBackground(Color.YELLOW);
-		
+				
 		p_day.setPreferredSize(new Dimension(1000, 50));
 		p_no.setPreferredSize(new Dimension(800, 50));
 		
