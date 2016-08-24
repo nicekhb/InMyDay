@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 public class Money_Main extends JFrame{
-	JPanel top; //いいいいいいいいいいいいいいけいしけいし
+	JPanel top; //123123123213123123123
 	JPanel center;
 	JButton move_category;
 	JButton move_calendar;
@@ -21,7 +21,7 @@ public class Money_Main extends JFrame{
 	JPanel balance;
 	JPanel south;
 	JPanel east;
-	//せせせせせ
+
 	public Money_Main(){
 		top = new JPanel();
 		center = new JPanel();
