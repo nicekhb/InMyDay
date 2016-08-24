@@ -21,7 +21,7 @@ public class Money_Main extends JFrame{
 	JPanel balance;
 	JPanel south;
 	JPanel east;
-	
+	//せせせせせ
 	public Money_Main(){
 		top = new JPanel();
 		center = new JPanel();
