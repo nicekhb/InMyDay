@@ -12,11 +12,14 @@ public class DayPanelOfMonth extends JPanel{
 	public static final int WIDTH = 135;
 	public static final int HEIGHT = 100;
 	JLabel dayLabel;
-	int dayNumber;
-	public DayPanelOfMonth(int dayNumber) {
-		this.dayNumber = dayNumber;
+	int year, month;
+	int day;
+	public DayPanelOfMonth(int year, int month, int day) {
+		this.year = year;
+		this.month = month;
+		this.day = day;
 		
-		dayLabel = new JLabel(Integer.toString(dayNumber));
+		dayLabel = new JLabel(Integer.toString(day));
 		
 		add(dayLabel);
 		

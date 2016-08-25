@@ -13,20 +13,24 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.klk.main.InMyDayMain;
+
 public class MonthPanel extends JPanel{
+	InMyDayMain dayMain;
 	JPanel panel_top;
 	JPanel panel_top_center, panel_top_east;
 	JPanel panel_center;
 	JPanel panel_bottom;
 	JLabel curYearMonth;
 	JButton btn_pre,btn_next;
-	JButton btn_week,btn_month;
+	JButton btn_week,btn_month,btn_year;
 	JButton btn_addSchedule;
 	Calendar calendar;
 	int year, month;
 	String[] wTitle = {"SUN","MON","TUE","WED","THU","FRI","SAT"};
 	
-	public MonthPanel() {
+	public MonthPanel(InMyDayMain dayMain) {
+		this.dayMain = dayMain;
 		panel_top = new JPanel();
 		panel_top_center = new JPanel();
 		panel_top_east = new JPanel();
@@ -40,6 +44,7 @@ public class MonthPanel extends JPanel{
 		btn_next = new JButton("¥Ÿ¿Ω");
 		btn_week = new JButton("Weekly");
 		btn_month = new JButton("Monthly");
+		btn_year = new JButton("Yearly");
 		btn_addSchedule = new JButton("add Schedule");
 		
 		btn_pre.addActionListener(new ActionListener() {
@@ -60,6 +65,7 @@ public class MonthPanel extends JPanel{
 		panel_top_center.add(btn_next);
 		panel_bottom.add(btn_week);
 		panel_bottom.add(btn_month);
+		panel_bottom.add(btn_year);
 		panel_top.setLayout(new BorderLayout());
 		panel_top_east.setLayout(new BorderLayout());
 		panel_top_east.add(btn_addSchedule);
@@ -75,6 +81,14 @@ public class MonthPanel extends JPanel{
 		add(panel_top, BorderLayout.NORTH);
 		add(panel_center);
 		add(panel_bottom, BorderLayout.SOUTH);
+		
+		btn_year.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//dayMain.remove(dayMain.monthPanel);
+				dayMain.add(dayMain.yearPanel);
+				dayMain.repaint();
+			}
+		});		
 		
 		setPreferredSize(new Dimension(1000, 900));
 		setBackground(Color.yellow);
@@ -121,7 +135,7 @@ public class MonthPanel extends JPanel{
 			panel_center.add(day);
 		}
 		for(int i=0;i<MyCalendar.isMonthDay(year, month);i++){
-			DayPanelOfMonth day = new DayPanelOfMonth(i+1);
+			DayPanelOfMonth day = new DayPanelOfMonth(year, month, i+1);
 			panel_center.add(day);
 		}
 		updateUI();
