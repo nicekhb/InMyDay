@@ -1,4 +1,4 @@
-package com.klk.calendar;
+package com.klk.calendar.monthly;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -7,6 +7,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.klk.calendar.AddSchedule;
 
 public class DayPanelOfMonth extends JPanel{
 	public static final int WIDTH = 135;

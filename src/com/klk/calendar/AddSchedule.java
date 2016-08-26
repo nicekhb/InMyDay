@@ -36,7 +36,7 @@ public class AddSchedule extends JFrame{
 		scroll = new JScrollPane(area);
 		btn = new JButton("µî·Ï");
 		
-		area.setPreferredSize(new Dimension(180, 100));
+		area.setPreferredSize(new Dimension(200, 100));
 		
 		panel.add(txt);
 		panel.add(start_label);

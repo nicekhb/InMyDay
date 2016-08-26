@@ -1,4 +1,4 @@
-package com.klk.calendar;
+package com.klk.calendar.yearly;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -8,6 +8,8 @@ import java.awt.Font;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.klk.calendar.MyCalendar;
 
 public class MonthPanelOfYear extends JPanel{
 	JPanel panel_top;

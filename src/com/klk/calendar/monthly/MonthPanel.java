@@ -1,4 +1,4 @@
-package com.klk.calendar;
+package com.klk.calendar.monthly;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,38 +13,31 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.klk.calendar.MyCalendar;
 import com.klk.main.InMyDayMain;
 
 public class MonthPanel extends JPanel{
-	InMyDayMain dayMain;
 	JPanel panel_top;
 	JPanel panel_top_center, panel_top_east;
 	JPanel panel_center;
-	JPanel panel_bottom;
 	JLabel curYearMonth;
 	JButton btn_pre,btn_next;
-	JButton btn_week,btn_month,btn_year;
 	JButton btn_addSchedule;
 	Calendar calendar;
 	int year, month;
 	String[] wTitle = {"SUN","MON","TUE","WED","THU","FRI","SAT"};
 	
-	public MonthPanel(InMyDayMain dayMain) {
-		this.dayMain = dayMain;
+	public MonthPanel() {
 		panel_top = new JPanel();
 		panel_top_center = new JPanel();
 		panel_top_east = new JPanel();
 		panel_center = new JPanel();
-		panel_bottom = new JPanel();
 		calendar = Calendar.getInstance();
 		year = calendar.get(Calendar.YEAR);
 		month = calendar.get(Calendar.MONTH)+1;
 		//day = calendar.get(Calendar.DAY_OF_MONTH);
 		btn_pre = new JButton("이전");
 		btn_next = new JButton("다음");
-		btn_week = new JButton("Weekly");
-		btn_month = new JButton("Monthly");
-		btn_year = new JButton("Yearly");
 		btn_addSchedule = new JButton("add Schedule");
 		
 		btn_pre.addActionListener(new ActionListener() {
@@ -63,9 +56,6 @@ public class MonthPanel extends JPanel{
 		panel_top_center.add(btn_pre);
 		panel_top_center.add(curYearMonth);
 		panel_top_center.add(btn_next);
-		panel_bottom.add(btn_week);
-		panel_bottom.add(btn_month);
-		panel_bottom.add(btn_year);
 		panel_top.setLayout(new BorderLayout());
 		panel_top_east.setLayout(new BorderLayout());
 		panel_top_east.add(btn_addSchedule);
@@ -76,21 +66,10 @@ public class MonthPanel extends JPanel{
 		
 		setLayout(new BorderLayout());
 		panel_center.setLayout(new FlowLayout(FlowLayout.LEFT));
-		panel_bottom.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
 		add(panel_top, BorderLayout.NORTH);
-		add(panel_center);
-		add(panel_bottom, BorderLayout.SOUTH);
+		add(panel_center);	
 		
-		btn_year.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//dayMain.remove(dayMain.monthPanel);
-				dayMain.add(dayMain.yearPanel);
-				dayMain.repaint();
-			}
-		});		
-		
-		setPreferredSize(new Dimension(1000, 900));
 		setBackground(Color.yellow);
 	}
 	
